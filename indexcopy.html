@@ -12,11 +12,11 @@
         
         <style>
 #first-sentence {
-color:rgb(237, 0, 0)
+color:rgb(237, 0, 0);
 }
 
 #body{
-background-color:rgb(0, 160, 237)
+background-color:rgb(0, 160, 237);
 }
         </style>
 
@@ -30,10 +30,19 @@ background-color:rgb(0, 160, 237)
             Hey, thanks for visiting. Right now, I have nothing to put on this website, but feel free to copy it yourself and use it as a template for your own website!
             
         </p>
-
+<p>
+You have wasted your life on this website for <span id="seconds">0</span> seconds
+</p>
 
         <script>
-
+        var seconds = document.getElementById("seconds");
+            
+            var countUp = function() {
+                seconds.textContent = parseFloat(seconds.textContent) + 1
+            };
+            
+            var counts = window.setInterval(countUp, 1000)
+        
         </script>
 
 
