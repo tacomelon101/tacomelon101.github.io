@@ -8,7 +8,10 @@
  
     <h1>Translator</h1>
     
-    <p> A simple translator made by Tony. Insert a singular Latin word into the latin box for it to be translated into english, and insert a singular english word for it to be translated into Latin. Currently only contains words in the stage 1 - 3 vocab checklists. All words must be uncapitalised. Does not contain obvious translations such as "est" and "is". All words are translations from the Latin books issued by Mr Burrow, not google translate. Might add more later.
+    <p> 
+    
+    
+    Translations according to the Cambrdige Latin Book 1. Keep all letters in lower case. Version 1.1.5
     
     </p>
      
@@ -25,178 +28,52 @@
  
     <script>
         var tranButton = document.getElementById('tran-Button');
-            var latin = document.getElementById("latin");
-            var english = document.getElementById("english");
+        var latin = document.getElementById("latin");
+        var englishs = document.getElementById("english");
+        
+        var wE = [
+            "dog", "cook", "mother", "son", "garden", "works, is working", "father", "sits, is sitting", "slave", "street", "friend", "friend", "dinner", "food", "master", "sleeps", "enters", "happy", "praises", "merchant", "also", "greets", "to", "drinks", "looks round", "shouts", "look", "waits for", "door", "angry", "lion", "big", "ship", "not", "carries", "replies", "laughs, smiles", "hello", "gets up, stands up", "shop, inn", "sees", "wine"
+]
+        
+        var wL = [
+            "canis", "coquus", "mater", "filius", "hortus", "laborat", "pater", "sedet", "servus", "via", "amicus", "ancilla", "cena", "cibus", "dominus", "dormit", "intrat", "laetus", "laudat", "mercator", "quoque", "salutat", "ad", "bibit", "circumspectat", "clamat", "ecce", "exspectat", "iauna", "iratus", "leo", "magnus", "navis", "non", "portat", "respondet", "ridet", "salve", "surgit", "taberna", "videt", "vinum"
+]
+        
+        var num = 0
             
         var tranIt = function() {
-            if(latin.value == "canis") {
+            
+            if (latin.value !== "") {
+                
+                while (latin.value !== wL[num]) {
+                    
+                    num = num + 1;
+                    
+                    }   
+            
                 var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "dog";
-            };
-            if(latin.value == "coquus") {
+                translationDiv.textContent = wE[num];
+                
+                num = 0
+            
+            }
+            
+            if (english.value !== "") {
+                
+                while (english.value !== wE[num]) {
+                    
+                    num = num + 1;
+                    
+                    }   
+            
                 var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "cook";
-            };
-            if(latin.value == "mater") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "mother";
-            };
-            if(latin.value == "filius") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "son";
-            };
-            if(latin.value == "hortus") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "garden";
-            };
-            if(latin.value == "laborat") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "works, is working";
-            };
-            if(latin.value == "pater") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "father";
-            };
-            if(latin.value == "sedet") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "sits, is sitting";
-            };
-            if(latin.value == "servus") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "slave";
-            };
-            if(latin.value == "via") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "street";
-            };
-            if(latin.value == "amicus") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "friend";
-            };
-            if(latin.value == "ancilla") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "friend";
-            };
-            if(latin.value == "cena") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "dinner";
-            };
-            if(latin.value == "cibus") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "food";
-            };
-            if(latin.value == "dominus") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "master";
-            };
-            if(latin.value == "dormit") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "sleeps";
-            };
-            if(latin.value == "intrat") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "enters";
-            };
-            if(latin.value == "laetus") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "happy";
-            };
-            if(latin.value == "laudat") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "praises";
-            };
-            if(latin.value == "mercator") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "merchant";
-            };
-            if(latin.value == "quoque") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "also";
-            };
-            if(latin.value == "salutat") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "greets";
-            };
-            if(latin.value == "ad") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "to";
-            };
-            if(latin.value == "bibit") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "drinks";
-            };
-            if(latin.value == "circumspectat") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "looks round";
-            };
-            if(latin.value == "clamat") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "shouts";
-            };
-            if(latin.value == "ecce") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "look";
-            };
-            if(latin.value == "exspectat") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "waits for";
-            };
-            if(latin.value == "iauna") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "door";
-            };
-            if(latin.value == "iratus") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "angry";
-            };
-            if(latin.value == "leo") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "lion";
-            };
-            if(latin.value == "magnus") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "big";
-            };
-            if(latin.value == "navis") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "ship";
-            };
-            if(latin.value == "non") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "not";
-            };
-            if(latin.value == "portat") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "carries";
-            };
-            if(latin.value == "respondet") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "replies";
-            };
-            if(latin.value == "ridet") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "laughs, smiles";
-            };
-            if(latin.value == "salve") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "hello";
-            };
-            if(latin.value == "surgit") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "gets up, stands up";
-            };
-            if(latin.value == "taberna") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "shop, inn";
-            };
-            if(latin.value == "videt") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "sees";
-            };
-            if(latin.value == "vinum") {
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = "wine";
-            };
+                translationDiv.textContent = wL[num];
+                
+                num = 0
+            
+            }
+            
+            
         };
         tranButton.addEventListener('click', tranIt);
         
