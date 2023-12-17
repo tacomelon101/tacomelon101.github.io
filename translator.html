@@ -11,7 +11,7 @@
     <p> 
     
     
-    Translations according to the Cambrdige Latin Book 1. Keep all letters in lower case. Version 1.1.6.
+    Translations from CLC book 1. Version 1.1.8
     
     </p>
      
@@ -27,57 +27,104 @@
     </p>
  
     <script>
+    
+        // variables for holding direct input from html, and button
+        
         var tranButton = document.getElementById('tran-Button');
         var latin = document.getElementById("latin");
-        var englishs = document.getElementById("english");
+        var english = document.getElementById("english");
+        
+        // latin word list
         
         var wE = [
-            "dog", "cook", "mother", "son", "garden", "works, is working", "father", "sits, is sitting", "slave", "street", "friend", "friend", "dinner", "food", "master", "sleeps", "enters", "happy", "praises", "merchant", "also", "greets", "to", "drinks", "looks round", "shouts", "look", "waits for", "door", "angry", "lion", "big", "ship", "not", "carries", "replies", "laughs, smiles", "hello", "gets up, stands up", "shop, inn", "sees", "wine"
+            "dog", "cook", "mother", "son", "garden", "works, is working", "father", "sits, is sitting", "slave", "street", "friend", "friend", "dinner", "food", "master", "sleeps", "enters", "happy", "praises", "merchant", "also", "greets", "to", "drinks", "looks round", "shouts", "look", "waits for", "door", "angry", "lion", "big", "ship", "not", "carries", "replies", "laughs, smiles", "hello", "gets up, stands up", "shop, inn", "sees", "wine", "I", "and", "am"
 ]
+        // english word list
         
         var wL = [
-            "canis", "coquus", "mater", "filius", "hortus", "laborat", "pater", "sedet", "servus", "via", "amicus", "ancilla", "cena", "cibus", "dominus", "dormit", "intrat", "laetus", "laudat", "mercator", "quoque", "salutat", "ad", "bibit", "circumspectat", "clamat", "ecce", "exspectat", "iauna", "iratus", "leo", "magnus", "navis", "non", "portat", "respondet", "ridet", "salve", "surgit", "taberna", "videt", "vinum"
+            "canis", "coquus", "mater", "filius", "hortus", "laborat", "pater", "sedet", "servus", "via", "amicus", "ancilla", "cena", "cibus", "dominus", "dormit", "intrat", "laetus", "laudat", "mercator", "quoque", "salutat", "ad", "bibit", "circumspectat", "clamat", "ecce", "exspectat", "iauna", "iratus", "leo", "magnus", "navis", "non", "portat", "respondet", "ridet", "salve", "surgit", "taberna", "videt", "vinum", "ego", "et", "est"
 ]
         
-        var num = 0
+        // function for when the button is pressed
+        
+        tranIt = function() {
             
-        var tranIt = function() {
+            var trans = []; // universal array for holding translated language
             
-            if (latin.value !== "") {
+            // code for translating latin
+            
+            var latinInput = latin.value.toLowerCase();
+            var latinSplit = latinInput.split(" ");
+        
+            var count = 0;
+            var num = 0;
+            
+            if (latinInput != " ") {
                 
-                while (latin.value !== wL[num]) {
-                    
-                    num = num + 1;
-                    
-                    }   
-            
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = wE[num];
+                while (count !== latinSplit.length) {
+                    num = 0
+                    if (latinSplit[count] !== "") {
                 
-                num = 0
-            
+                        while (latinSplit[count] !== wL[num]) {
+                        
+                            if (num < wL.length) {
+                            num = num + 1;
+                            }
+                    
+                        };
+                    
+                        trans[count] = wE[num]
+                    };
+                    count++
+                };
             }
             
-            if (english.value !== "") {
-                
-                while (english.value !== wE[num]) {
-                    
-                    num = num + 1;
-                    
-                    }   
+            // code for translating english
             
-                var translationDiv = document.getElementById("translation");
-                translationDiv.textContent = wL[num];
-                
-                num = 0
+            var englishInput = english.value.toLowerCase();
+            var englishSplit = englishInput.split(" ");
+
+            var countE = 0;
+            var numE = 0;
             
+            // english code
+            
+            if (englishInput != " ") {
+                while (countE !== englishSplit.length) {
+                    numE = 0
+                    if (englishSplit[countE] !== "") {
+                
+                        while (englishSplit[countE] !== wE[numE]) {
+                            if (numE < wE.length) {
+                            numE = numE + 1;
+                            }
+                    
+                        };
+                    
+                        trans[countE] = wL[numE]
+                    };
+                    countE++
+                };
             }
             
             
-        };
+            // declaring translation box variable and setting the translation
+            
+            var translationDiv = document.getElementById("translation");
+            
+            translationDiv.textContent = trans.join(" ");
+            
+        }
+        
+        // activating the button
+        
         tranButton.addEventListener('click', tranIt);
         
     </script>
   
  </body>
 </html>
+
+
+
+
